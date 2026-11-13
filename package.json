@@ -1,0 +1,16 @@
+{
+  "name": "r6t5-copilot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "r6t5 Copilot — Cloudflare Workers AI 驱动的单页 AI 工作台",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail",
+    "check": "node --check src/index.js"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

@@ -1,0 +1,22 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "r6t5-copilot"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+# Workers AI 绑定：env.AI.run(model, input)，无需在浏览器里放 API Key
+[ai]
+binding = "AI"
+
+# 单页前端：Worker 直接把 public/ 下的 index.html 发出去
+[assets]
+directory = "./public"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*"]
+
+[vars]
+# 允许跨域来源：前端同源部署时保持 "*"；只想让自己的域名调用就改成 "https://your.domain"
+ALLOWED_ORIGIN = "*"
+
+# 可选：限制调用方。设置后前端需在设置里填同一个值（请求头 x-copilot-key）
+# npx wrangler secret put ACCESS_KEY
